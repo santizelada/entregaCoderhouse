@@ -171,8 +171,9 @@ const products = [
 
 const productsContainer = document.querySelector("#products-container")
 const categoriesButtons = document.querySelectorAll(".productsButton")
-const mainTitle = document.querySelector("#main-title");
-let AddButton = document-querySelectorAll(".add-product")
+const mainTitle = document.querySelector("#main-title")
+let addButton = document.querySelectorAll(".add-product")
+const numberCart = document.querySelector("#numberCart")
 
 function loadProducts(productsSelected) {
 
@@ -181,7 +182,7 @@ function loadProducts(productsSelected) {
     productsSelected.forEach(product =>{   
 
         const div = document.createElement("div");
-        div.classList.add(".product");
+        div.classList.add("product"); /*-----------------------------------------------------------------------------Here there has been removed the dot from (".product") */
         div.innerHTML = `
             <img class="product-image" src="${product.picture}" alt="${product.name}">
             <div class="product-details">
@@ -191,7 +192,11 @@ function loadProducts(productsSelected) {
             </div>
         `  
         productsContainer.append(div);
+
+
     })
+
+    updateAddButtons()
 }
 
 loadProducts(products);
@@ -208,7 +213,7 @@ categoriesButtons.forEach(button => {
             const productsButton = products.filter(product => product.category.id === e.currentTarget.id);
             loadProducts(productsButton);
         } else {
-            mainTitle.innerText = "All the products"
+            mainTitle.innerText = "All the products";
                 loadProducts(products);
         }
 
@@ -218,3 +223,38 @@ categoriesButtons.forEach(button => {
 }
 )
 
+
+function updateAddButtons() {
+    addButton = document.querySelectorAll(".add-product")
+
+    addButton.forEach(button => {
+        button.addEventListener("click", addToCart)
+    })
+    
+}
+
+const productsInCart = [];
+
+function addToCart(e){
+
+    const idButton = e.currentTarget.id
+    const addedProduct = products.find(product => product.id ===idButton)
+
+    if(productsInCart.some(product => product.id === idButton)){
+        const index = productsInCart.findIndex(product => product.id === idButton)
+        productsInCart[index].amount++;
+    } else {
+        addedProduct.amount = 1
+        productsInCart.push(addedProduct)
+    }
+
+    updateNumberCart()
+
+    localStorage.setItem("products-in-cart", JSON.stringify(productsInCart))
+}
+
+function updateNumberCart(){
+
+    let newNumberCart = productsInCart.reduce((acc, product) => acc + product.amount, 0)
+    numberCart.innerText = newNumberCart
+}
