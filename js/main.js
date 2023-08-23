@@ -233,7 +233,17 @@ function updateAddButtons() {
     
 }
 
-const productsInCart = [];
+let productsInCart;
+
+const productsInCartLS = JSON.parse(localStorage.getItem("products-in-cart"))
+if(productsInCartLS) {
+    productsInCart = productsInCartLS
+    updateNumberCart();
+} else {
+    productsInCart = productsInCartLS
+}
+// const productsInCart = [];
+
 
 function addToCart(e){
 
@@ -250,7 +260,7 @@ function addToCart(e){
 
     updateNumberCart()
 
-    localStorage.setItem("products-in-cart", JSON.stringify(productsInCart))
+    localStorage.setItem("products-in-cart", JSON.stringify(productsInCart));
 }
 
 function updateNumberCart(){
@@ -258,3 +268,4 @@ function updateNumberCart(){
     let newNumberCart = productsInCart.reduce((acc, product) => acc + product.amount, 0)
     numberCart.innerText = newNumberCart
 }
+
