@@ -117,9 +117,10 @@ main{
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
-    --clr-main: #D84343 ;
+    /* --clr-main: #D84343 ; */
+    --clr-main:  #000004;
     --clr-main-light: #FF495C;
-    --clr-white: #ececec;
+    --clr-white:#7E1946;
     --clr-gray: #e2e2e2;
     --clr-red: #961818;
 }
