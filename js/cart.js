@@ -7,7 +7,7 @@ const containerCartActions = document.querySelector("#cart-actions")
 const containerCartBought = document.querySelector("#cart-bought")
 const emptyButton = document.querySelector("#cart-empty")
 const containerTotal = document.querySelector("#total")
-const buyCart = document.querySelector("#cart-buy")
+const buyButton = document.querySelector("#cart-buy")
 
 let deleteButtons = document.querySelectorAll(".cart-product-delete")
 
