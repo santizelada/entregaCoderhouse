@@ -233,17 +233,22 @@ function updateAddButtons() {
     
 }
 
-let productsInCart;
+// let productsInCart;
 
-const productsInCartLS = JSON.parse(localStorage.getItem("products-in-cart"))
-if(productsInCartLS) {
-    productsInCart = productsInCartLS
-    updateNumberCart();
-} else {
-    productsInCart = productsInCartLS
-}
-// const productsInCart = [];
+// let productsInCartLS = localStorage.getItem("products-in-cart")
 
+
+// if(productsInCartLS) {
+//     productsInCart = JSON.parse(productsInCartLS)
+//     updateNumberCart();
+// } else {
+//     productsInCart = productsInCartLS
+// }
+
+const productsInCart = [];
+
+// const idButton = e.currentTarget.id
+// const addedProduct = products.find(product => product.id ===idButton)
 
 function addToCart(e){
 
