@@ -337,16 +337,16 @@ main {
 
 /*-------------------------Still don't know when the class '.carrito-producto-imagen' is used */
 
-.carrito-producto-imagen {
+.cart-product-picture {
     width: 4rem;
     border-radius: 1rem;
 }
 
-.carrito-producto small {
+.cart-product small {
     font-size: .75rem;
 }
 
-.carrito-producto-eliminar {
+.cart-product-delete {
     border: 0;
     background-color: transparent;
     color: var(--clr-red);
@@ -356,9 +356,10 @@ main {
 .cart-actions {
     display: flex;
     justify-content: space-between;
+    margin-top: 8%;
 }
 
-.empty-cart {
+.cart-empty {
     border: 0;
     background-color: var(--clr-gray);
     padding: 1rem;

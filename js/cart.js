@@ -28,7 +28,7 @@ function loadProductsInCart() {
             const div = document.createElement("div");
             div.classList.add("cart-product")
             div.innerHTML = `
-            <img class="cart-product-picture" src="${product.picture}" alt="${product.name}"> /*------------------name or title. Check that out*/
+            <img class="cart-product-picture" src="${product.picture}" alt="${product.name}">
                 <div class="cart-product-name">
                             <small> Name </small>
                             <h3>${product.name}</h3>
@@ -45,7 +45,7 @@ function loadProductsInCart() {
                         <small>Subtotal</small>
                         <p>US$${product.price * product.amount}</p>
                     </div>
-                    <button class="cart-product-delete" id="${product.id}"><i class="bi bi-trash-fill"></i></button> -->
+                    <button class="cart-product-delete" id="${product.id}"><i class="bi bi-trash-fill"></i></button>
             `
             containerCartProducts.append(div);
         
@@ -76,7 +76,7 @@ function updateDeleteButtons() {
 function deleteFromCart(e) {
 
     const idButton = e.currentTarget.id
-    const index = productsInCart.findeIndex(product => product.id ===idButton)
+    const index = productsInCart.findIndex(product => product.id ===idButton)
 
     productsInCart.splice(index, 1)
     loadProductsInCart()
