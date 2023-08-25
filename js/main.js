@@ -270,6 +270,7 @@ function addToCart(e){
 
 function updateNumberCart(){
 
+
     let newNumberCart = productsInCart.reduce((acc, product) => acc + product.amount, 0)
     numberCart.innerText = newNumberCart
 }
